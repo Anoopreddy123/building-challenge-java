@@ -55,7 +55,7 @@ BuildingChallenge/
 If using git:
 ```bash
 git clone https://github.com/Anoopreddy123/building-challenge-java.git
-cd BuildingChallenge
+cd building-challenge-java
 ```
 
 ### 2. Build the Project
