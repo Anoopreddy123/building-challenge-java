@@ -261,9 +261,6 @@ P002,Mouse,Electronics,2024-01-20,30.00,5,South,Jane
 # Using Maven (with default CSV file)
 mvn exec:java -Dexec.mainClass="com.buildingchallenge.assignment2.SalesAnalysisDemo"
 
-# Using Maven (with custom CSV file path)
-mvn exec:java -Dexec.mainClass="com.buildingchallenge.assignment2.SalesAnalysisDemo" -Dexec.args="path/to/your/sales_data.csv"
-
 # Or compile and run directly
 cd src/main/java
 javac -cp "$(mvn dependency:build-classpath -q -DincludeScope=compile):." com/buildingchallenge/assignment2/*.java
