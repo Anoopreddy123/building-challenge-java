@@ -331,7 +331,40 @@ Analysis Complete!
 
 ---
 
-## Running Tests
+### Test Coverage Summary
+
+Assignment 1: Producer-Consumer Pattern (10 tests)
+
+SharedQueueTest.java (3 tests)
+- take blocks when empty, then unblocks after put
+- put blocks when full, then unblocks after take
+- FIFO order verification
+
+ProducerConsumerTest.java (7 tests)
+- Producer produces all items from source
+- Consumer consumes all items from queue
+- Producer and consumer maintain data integrity
+- Producer rejects null source container
+- Consumer rejects null destination container
+- Handles empty source gracefully
+- Multiple producers and consumers work correctly
+
+Assignment 2: CSV Data Analysis (11 tests)
+
+SalesQueryAnalyzerTest.java (9 tests)
+- Total revenue sum calculation
+- Revenue grouped by category
+- Revenue grouped by region
+- Sales count grouped by region
+- Top N products by revenue ordering and limit
+- Top N sales reps by revenue ordering and limit
+- Product count grouped by category
+- Date range filter boundaries
+- Empty input returns safe defaults
+
+CSVDataReaderTest.java (2 tests)
+- Reads valid CSV and returns correct record count
+- Invalid rows are skipped gracefully
 
 ### Run All Tests
 
@@ -439,8 +472,4 @@ This project follows standard SDLC practices across all phases:
 - Documentation (README)
 - Sample data files
 
-#### 7. **Maintenance Phase**
-- Code is maintainable with clear structure
-- Comprehensive comments for future developers
-- Well-documented public APIs
 
