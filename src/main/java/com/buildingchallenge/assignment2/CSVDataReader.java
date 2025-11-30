@@ -5,6 +5,8 @@ import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -62,6 +64,41 @@ public class CSVDataReader {
         }
         
         // Retunring unmodifiable list to prevent modification of the data present in the list
+        return Collections.unmodifiableList(records);
+    }
+    
+    /**
+     * Reads sales data from InputStream (e.g., from classpath) and returns list of SalesRecord objects
+     * 
+     * This method allows reading CSV data from resources packaged in the application,
+     * making it work regardless of the current working directory or when packaged as a JAR.
+     * 
+     * @param inputStream InputStream containing CSV data
+     * @return List of parsed SalesRecord objects
+     * @throws IOException if stream cannot be read
+     * @throws CsvException if CSV parsing fails
+     */
+    public List<SalesRecord> readSalesData(InputStream inputStream) throws IOException, CsvException {
+        List<SalesRecord> records = new ArrayList<>();
+        
+        try (Reader reader = new InputStreamReader(inputStream);
+             CSVReader csvReader = new CSVReaderBuilder(reader)
+                 .withSkipLines(1) // Skip header row
+                 .build()) {
+            
+            List<String[]> rows = csvReader.readAll();
+            
+            for (int i = 0; i < rows.size(); i++) {
+                String[] row = rows.get(i);
+                try {
+                    SalesRecord record = parseRow(row);
+                    records.add(record);
+                } catch (Exception e) {
+                    System.err.println("Warning: Skipping invalid row " + (i + 2) + ": " + e.getMessage());
+                }
+            }
+        }
+        
         return Collections.unmodifiableList(records);
     }
     

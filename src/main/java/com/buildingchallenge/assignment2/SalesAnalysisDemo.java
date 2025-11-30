@@ -3,6 +3,7 @@ package com.buildingchallenge.assignment2;
 import com.opencsv.exceptions.CsvException;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.nio.file.Path;
@@ -38,18 +39,27 @@ public class SalesAnalysisDemo {
         System.out.println("========================================\n");
         
         try {
-            Path csvFilePath;
+            SalesAnalyzerImpl analyzer;
+            
             if (args.length > 0) {
-                csvFilePath = Paths.get(args[0]);
+                // User provided file path - use filesystem path
+                Path csvFilePath = Paths.get(args[0]);
+                System.out.println("Loading sales data from: " + csvFilePath);
+                analyzer = new SalesAnalyzerImpl(csvFilePath);
             } else {
-                // Default to sample data file in resources
-                csvFilePath = Paths.get("src/main/resources/sales_data.csv");
+                // Default: Load from classpath (works from any directory and in JAR files)
+                String resourcePath = "/sales_data.csv";
+                System.out.println("Loading sales data from classpath: " + resourcePath);
+                
+                InputStream inputStream = SalesAnalysisDemo.class.getResourceAsStream(resourcePath);
+                if (inputStream == null) {
+                    throw new IOException("Resource not found: " + resourcePath + 
+                                        ". Make sure sales_data.csv is in src/main/resources/");
+                }
+                
+                analyzer = new SalesAnalyzerImpl(inputStream);
+                inputStream.close();
             }
-            
-            System.out.println("Loading sales data from: " + csvFilePath);
-            
-            // Step 1: Create analyzer which loads data from CSV
-            SalesAnalyzerImpl analyzer = new SalesAnalyzerImpl(csvFilePath);
             
             System.out.println("Loaded " + analyzer.getSalesRecords().size() + " sales records\n");
             

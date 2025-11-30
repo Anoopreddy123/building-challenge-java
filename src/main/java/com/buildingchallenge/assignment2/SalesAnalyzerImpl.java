@@ -3,6 +3,7 @@ package com.buildingchallenge.assignment2;
 import com.opencsv.exceptions.CsvException;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.time.LocalDate;
@@ -33,6 +34,21 @@ public class SalesAnalyzerImpl implements SalesAnalyzerUtil {
     public SalesAnalyzerImpl(Path csvFilePath) throws IOException, CsvException {
         CSVDataReader dataReader = new CSVDataReader();
         this.salesRecords = dataReader.readSalesData(csvFilePath);
+    }
+    
+    /**
+     * Constructor - Creates analyzer and loads data from InputStream (e.g., from classpath)
+     * 
+     * This constructor allows loading CSV data from resources packaged in the application,
+     * making it work regardless of the current working directory or when packaged as a JAR.
+     * 
+     * @param inputStream InputStream containing CSV data
+     * @throws IOException if stream cannot be read
+     * @throws CsvException if CSV parsing fails
+     */
+    public SalesAnalyzerImpl(InputStream inputStream) throws IOException, CsvException {
+        CSVDataReader dataReader = new CSVDataReader();
+        this.salesRecords = dataReader.readSalesData(inputStream);
     }
     
     /**
