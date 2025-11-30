@@ -1,0 +1,31 @@
+ProductID,ProductName,Category,SaleDate,Amount,Quantity,Region,SalesRep
+P001,Laptop Computer,Electronics,2024-01-15,999.99,3,North,John Smith
+P002,Wireless Mouse,Electronics,2024-01-20,29.99,10,North,John Smith
+P003,Office Chair,Furniture,2024-02-10,199.99,5,South,Jane Doe
+P004,Desk Lamp,Furniture,2024-02-15,45.50,8,South,Jane Doe
+P005,Smartphone,Electronics,2024-01-25,799.99,4,East,Mike Johnson
+P006,Tablet,Electronics,2024-02-20,449.99,6,East,Mike Johnson
+P007,Monitor,Electronics,2024-03-05,299.99,7,North,John Smith
+P008,Keyboard,Electronics,2024-03-10,79.99,12,North,John Smith
+P009,File Cabinet,Furniture,2024-03-15,149.99,3,South,Jane Doe
+P010,Printer,Electronics,2024-03-20,349.99,4,East,Mike Johnson
+P001,Laptop Computer,Electronics,2024-04-01,999.99,2,West,Sarah Wilson
+P011,Bookshelf,Furniture,2024-04-05,89.99,6,West,Sarah Wilson
+P012,Headphones,Electronics,2024-04-10,129.99,9,North,John Smith
+P003,Office Chair,Furniture,2024-04-15,199.99,4,South,Jane Doe
+P005,Smartphone,Electronics,2024-04-20,799.99,5,East,Mike Johnson
+P013,Webcam,Electronics,2024-05-01,59.99,15,West,Sarah Wilson
+P004,Desk Lamp,Furniture,2024-05-05,45.50,10,South,Jane Doe
+P006,Tablet,Electronics,2024-05-10,449.99,3,East,Mike Johnson
+P014,Desk,Furniture,2024-05-15,399.99,2,West,Sarah Wilson
+P007,Monitor,Electronics,2024-05-20,299.99,5,North,John Smith
+P001,Laptop Computer,Electronics,2024-06-01,999.99,4,North,John Smith
+P015,Speakers,Electronics,2024-06-05,179.99,8,East,Mike Johnson
+P003,Office Chair,Furniture,2024-06-10,199.99,6,South,Jane Doe
+P016,Stapler,Office Supplies,2024-06-15,12.99,20,West,Sarah Wilson
+P017,Pen Set,Office Supplies,2024-06-20,8.99,25,North,John Smith
+P018,Notebook,Office Supplies,2024-07-01,5.99,30,East,Mike Johnson
+P005,Smartphone,Electronics,2024-07-05,799.99,3,South,Jane Doe
+P019,Calculator,Office Supplies,2024-07-10,24.99,18,West,Sarah Wilson
+P006,Tablet,Electronics,2024-07-15,449.99,4,North,John Smith
+P020,Filing Box,Office Supplies,2024-07-20,19.99,12,East,Mike Johnson
